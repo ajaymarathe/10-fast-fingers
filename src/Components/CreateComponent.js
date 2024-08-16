@@ -8,25 +8,25 @@ function CreateComponent({
   count,
 }) {
   return (
-    <div className="mt-5 d-flex">
-      <div className="form-group mb-2 mr-2">
+    <div className="create-component mt-4 d-flex align-items-center">
+      <div className="form-group mb-2 mr-2 flex-grow-1">
         <input
           type="text"
           className="form-control"
-          id="inputPassword2"
+          placeholder="Type to start..."
           onChange={(e) => onChangeText(e)}
           onKeyUp={(e) => {
             setIsActive(true);
             setCurrentKey(e.key);
           }}
           value={currentWord}
-          style={{ width: "100%" }}
+          autoFocus
         />
       </div>
-      <button className="btn btn-primary mb-2 mr-2">
+      <button className="btn btn-outline-primary mb-2 mr-2 timer-button">
         0:{count < 10 ? `0${count}` : count}
       </button>
-      <button className="btn btn-primary mb-2" onClick={() => window.location.reload()}>
+      <button className="btn btn-outline-danger mb-2" onClick={() => window.location.reload()}>
         Refresh
       </button>
     </div>

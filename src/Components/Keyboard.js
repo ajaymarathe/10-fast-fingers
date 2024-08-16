@@ -29,7 +29,7 @@ const arrowKeys = [];
 
 const Keyboard = ({ currentKey }) => {
   return (
-    <div className="keyboard-container mt-4">
+    <div className="keyboard-container mt-3 mb-5">
       <div className="main-keys">
         {mainKeys.map((row, rowIndex) => (
           <div key={rowIndex} className="keyboard-row">

@@ -6,3 +6,53 @@ body {
   border-radius: 10px;
 }
 
+.word-container {
+  background-color: #f8f9fa; /* Light background color for contrast */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  padding: 20px; /* Added padding for spacing */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Uniform spacing between words */
+  margin-top: 20px; /* Spacing from the top */
+  border: 1px solid;
+  justify-content: flex-start;
+  padding: 1em;
+}
+
+.word {
+  background-color: #ffffff; /* White background for words */
+  padding: 5px 12px; /* Padding inside word boxes */
+  border-radius: 6px; /* Slightly rounded word boxes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for words */
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.word:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  background-color: #e9ecef; /* Light gray background on hover */
+}
+
+.bg-primary {
+  background-color: #007bff !important; /* Primary blue for selected word */
+  color: #ffffff !important; /* White text for selected word */
+}
+
+.text-success {
+  color: #28a745 !important; /* Green color for new words */
+}
+
+.text-danger {
+  color: #dc3545 !important; /* Red color for wrong words */
+}
+
+.word-container .mr-2 {
+  margin-right: 10px !important; /* Updated margin between words */
+}
+
+.word-container .mb-2 {
+  margin-bottom: 10px !important; /* Updated margin between rows */
+}
+
+
+
