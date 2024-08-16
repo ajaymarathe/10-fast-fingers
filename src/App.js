@@ -6,8 +6,6 @@ import WordBox from "./Components/WordBox";
 function App() {
   const [currentKey, setCurrentKeys] = useState("")
 
-  console.log('currentKey', currentKey)
-
   const listOfWords = [
     "cat",
     "dog",

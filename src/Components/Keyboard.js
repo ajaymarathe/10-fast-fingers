@@ -2,25 +2,6 @@ import React from "react";
 
 const mainKeys = [
   [
-    "Esc",
-    "F1",
-    "F2",
-    "F3",
-    "F4",
-    "F5",
-    "F6",
-    "F7",
-    "F8",
-    "F9",
-    "F10",
-    "F11",
-    "F12",
-    "Home",
-    "End",
-    "Insert",
-    "Delete",
-  ],
-  [
     "~",
     "1",
     "2",
@@ -42,12 +23,11 @@ const mainKeys = [
   ["Ctrl", "Win", "Alt", "Space", "Alt", "Win", "Menu", "Ctrl"],
 ];
 
-const navKeys = [["Page Up"], ["Page Down"]];
+const navKeys = [];
 
-const arrowKeys = [[""], ["Up"], ["Left", "Down", "Right"]];
+const arrowKeys = [];
 
 const Keyboard = ({ currentKey }) => {
-  console.log('currentKey', currentKey)
   return (
     <div className="keyboard-container mt-4">
       <div className="main-keys">
@@ -58,14 +38,16 @@ const Keyboard = ({ currentKey }) => {
                 <button
                   key={keyIndex}
                   className={`key-button ${
-                    currentKey?.toUpperCase() === key.toUpperCase() ? "text-primary selected-key" : ""
+                    currentKey?.toUpperCase() === key.toUpperCase()
+                      ? "text-primary selected-key"
+                      : ""
                   } ${key === "Backspace" ? "backspace-key" : ""} ${
                     key === "Tab" ? "tab-key" : ""
                   } ${key === "Caps Lock" ? "capslock-key" : ""} ${
                     key === "Enter" ? "enter-key" : ""
-                  } ${key === "Shift" ? "shift-key" : ""} ${
-                    key === "Space" ? "space-button" : ""
-                  }`}
+                  } ${key === "Shift" ? "shift-key" : ""} 
+                  ${key === "Backspace" ? "shift-key" : ""}
+                  ${key === "Space" ? "space-button" : ""}`}
                 >
                   {key}
                 </button>
@@ -79,7 +61,14 @@ const Keyboard = ({ currentKey }) => {
           {navKeys.map((row, rowIndex) => (
             <div key={rowIndex} className="keyboard-row">
               {row.map((key, keyIndex) => (
-                <button key={keyIndex} className={`key-button special-key ${currentKey?.toUpperCase() === key ? "text-primary selected-key" : ""}`}>
+                <button
+                  key={keyIndex}
+                  className={`key-button special-key ${
+                    currentKey?.toUpperCase() === key
+                      ? "text-primary selected-key"
+                      : ""
+                  }`}
+                >
                   {key}
                 </button>
               ))}
@@ -90,7 +79,14 @@ const Keyboard = ({ currentKey }) => {
           {arrowKeys.map((row, rowIndex) => (
             <div key={rowIndex} className="keyboard-row">
               {row.map((key, keyIndex) => (
-                <button key={keyIndex}className={`key-button special-key ${currentKey?.toUpperCase() === key ? "text-primary selected-key" : ""}`}>
+                <button
+                  key={keyIndex}
+                  className={`key-button special-key ${
+                    currentKey?.toUpperCase() === key
+                      ? "text-primary selected-key"
+                      : ""
+                  }`}
+                >
                   {key}
                 </button>
               ))}
