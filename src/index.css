@@ -1,13 +1,103 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins", sans-serif !important;
+}
+.word {
+  padding: 0.1em 0.6em 0.2em;
+  border-radius: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.keyboard-container {
+  display: inline-block;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-keys .keyboard-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+
+.extra-keys {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.nav-keys, .arrow-keys {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.key-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 7px 15px;
+  margin: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  min-width: 45px;
+  transition: background-color 0.2s;
+}
+
+.key-button:hover {
+  background-color: #ddd;
+}
+
+.backspace-key {
+  flex: 0.5;
+  text-align: center;
+}
+
+.tab-key {
+  min-width: 70px;
+}
+
+.capslock-key {
+  min-width: 90px;
+}
+
+.enter-key {
+  flex: 0.5;
+  text-align: center;
+}
+
+.shift-key {
+  flex: 1.5;
+}
+
+.space-button {
+  flex: 3;
+  min-width: 300px;
+}
+
+.special-key {
+  min-width: 70px;
+}
+
+.arrow-keys .keyboard-row {
+  display: flex;
+  justify-content: center;
+}
+
+.arrow-keys .key-button {
+  margin: 3px;
+  min-width: 45px;
+}
+
+.arrow-keys .keyboard-row:first-child .key-button {
+  visibility: hidden;
+}
+
+.nav-keys .keyboard-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selected-key {
+  background-color: #dddddd;
 }
