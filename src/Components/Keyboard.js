@@ -29,7 +29,7 @@ const arrowKeys = [];
 
 const Keyboard = ({ currentKey }) => {
   return (
-    <div className="keyboard-container mt-3 mb-5">
+    <div className="keyboard-container mt-3">
       <div className="main-keys">
         {mainKeys.map((row, rowIndex) => (
           <div key={rowIndex} className="keyboard-row">
@@ -38,7 +38,7 @@ const Keyboard = ({ currentKey }) => {
                 <button
                   key={keyIndex}
                   className={`key-button ${
-                    currentKey?.toUpperCase() === key.toUpperCase()
+                    currentKey?.toUpperCase() === key?.toUpperCase()
                       ? "text-primary selected-key"
                       : ""
                   } ${key === "Backspace" ? "backspace-key" : ""} ${
