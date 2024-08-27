@@ -4,7 +4,7 @@ import React from "react";
 function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <a className="navbar-brand">10FastFingers</a>
         <button
           className="navbar-toggler"
@@ -25,43 +25,12 @@ function Navbar() {
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link">Link</a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                role="button"
-                data-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div className="dropdown-menu">
-                <a className="dropdown-item">Action</a>
-                <a className="dropdown-item">Another action</a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item">Something else here</a>
-              </div>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled">Disabled</a>
-            </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
+          <div className="form-inline my-2 my-lg-0">
+            <div className="nav-item">
+              Profile
+            </div>
+          </div>
         </div>
       </nav>
     </>
