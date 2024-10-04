@@ -9,7 +9,7 @@ function App() {
   const [listOfWords, setListOfWords] = useState([])
 
   useEffect(() => {
-    setListOfWords(generateRandomWords())
+    setListOfWords(generateRandomWords(25))
   }, [])
 
   return (

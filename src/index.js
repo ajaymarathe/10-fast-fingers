@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import './Styles/Keyboard.css'
+import './Styles/Keyboard.scss'
 
 // src/index.js
 import 'bootstrap/dist/css/bootstrap.min.css';
