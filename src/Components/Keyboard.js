@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const mainKeys = [
   [
@@ -28,70 +28,80 @@ const navKeys = [];
 const arrowKeys = [];
 
 const Keyboard = ({ currentKey }) => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
   return (
-    <div className="keyboard-container mt-3">
-      <div className="main-keys">
-        {mainKeys.map((row, rowIndex) => (
-          <div key={rowIndex} className="keyboard-row">
-            {row.map((key, keyIndex) => {
-              return (
-                <button
-                  key={keyIndex}
-                  className={`key-button ${
-                    currentKey?.toUpperCase() === key?.toUpperCase()
-                      ? "text-primary selected-key"
-                      : ""
-                  } ${key === "Backspace" ? "backspace-key" : ""} ${
-                    key === "Tab" ? "tab-key" : ""
-                  } ${key === "Caps Lock" ? "capslock-key" : ""} ${
-                    key === "Enter" ? "enter-key" : ""
-                  } ${key === "Shift" ? "shift-key" : ""} 
+    <div className={`${isDarkTheme ? "dark-theme" : "light-theme"}`}>
+      <button onClick={toggleTheme} className="theme-toggle-button">
+        Switch to {isDarkTheme ? "Light" : "Dark"} Theme
+      </button>
+      <div className="keyboard-container mt-3">
+        <div className="main-keys">
+          {mainKeys.map((row, rowIndex) => (
+            <div key={rowIndex} className="keyboard-row">
+              {row.map((key, keyIndex) => {
+                return (
+                  <button
+                    key={keyIndex}
+                    className={`key-button ${
+                      currentKey?.toUpperCase() === key?.toUpperCase()
+                        ? "text-primary selected-key"
+                        : ""
+                    } ${key === "Backspace" ? "backspace-key" : ""} ${
+                      key === "Tab" ? "tab-key" : ""
+                    } ${key === "Caps Lock" ? "capslock-key" : ""} ${
+                      key === "Enter" ? "enter-key" : ""
+                    } ${key === "Shift" ? "shift-key" : ""} 
                   ${key === "Backspace" ? "shift-key" : ""}
                   ${key === "Space" ? "space-button" : ""}`}
-                >
-                  {key}
-                </button>
-              );
-            })}
-          </div>
-        ))}
-      </div>
-      <div className="extra-keys">
-        <div className="nav-keys d-flex">
-          {navKeys.map((row, rowIndex) => (
-            <div key={rowIndex} className="keyboard-row">
-              {row.map((key, keyIndex) => (
-                <button
-                  key={keyIndex}
-                  className={`key-button special-key ${
-                    currentKey?.toUpperCase() === key
-                      ? "text-primary selected-key"
-                      : ""
-                  }`}
-                >
-                  {key}
-                </button>
-              ))}
+                  >
+                    {key}
+                  </button>
+                );
+              })}
             </div>
           ))}
         </div>
-        <div className="arrow-keys">
-          {arrowKeys.map((row, rowIndex) => (
-            <div key={rowIndex} className="keyboard-row">
-              {row.map((key, keyIndex) => (
-                <button
-                  key={keyIndex}
-                  className={`key-button special-key ${
-                    currentKey?.toUpperCase() === key
-                      ? "text-primary selected-key"
-                      : ""
-                  }`}
-                >
-                  {key}
-                </button>
-              ))}
-            </div>
-          ))}
+        <div className="extra-keys">
+          <div className="nav-keys d-flex">
+            {navKeys.map((row, rowIndex) => (
+              <div key={rowIndex} className="keyboard-row">
+                {row.map((key, keyIndex) => (
+                  <button
+                    key={keyIndex}
+                    className={`key-button special-key ${
+                      currentKey?.toUpperCase() === key
+                        ? "text-primary selected-key"
+                        : ""
+                    }`}
+                  >
+                    {key}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="arrow-keys">
+            {arrowKeys.map((row, rowIndex) => (
+              <div key={rowIndex} className="keyboard-row">
+                {row.map((key, keyIndex) => (
+                  <button
+                    key={keyIndex}
+                    className={`key-button special-key ${
+                      currentKey?.toUpperCase() === key
+                        ? "text-primary selected-key"
+                        : ""
+                    }`}
+                  >
+                    {key}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
