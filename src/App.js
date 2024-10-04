@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Keyboard from "./Components/Keyboard";
+import Keyboard from "./Components/keyboard/Keyboard";
 import WordBox from "./Components/WordBox";
 import Navbar from "./Components/Navbar";
 import { generateRandomWords } from "./common";
