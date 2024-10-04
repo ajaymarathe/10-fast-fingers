@@ -6,11 +6,11 @@ import { generateRandomWords } from "./common";
 
 function App() {
   const [currentKey, setCurrentKeys] = useState("");
-  const [listOfWords, setListOfWords] = useState([])
+  const [listOfWords, setListOfWords] = useState([]);
 
   useEffect(() => {
-    setListOfWords(generateRandomWords(25))
-  }, [])
+    setListOfWords(generateRandomWords(25));
+  }, []);
 
   return (
     <>
@@ -21,7 +21,11 @@ function App() {
             <WordBox words={listOfWords} setCurrentKeys={setCurrentKeys} />
           </div>
           <div className="col-md-10">
-            <Keyboard currentKey={currentKey} />
+            <div
+              style={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}
+            >
+              <Keyboard currentKey={currentKey} />
+            </div>
           </div>
         </div>
       </div>
