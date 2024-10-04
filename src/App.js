@@ -1,44 +1,16 @@
-import { useState } from "react";
-import "./App.css";
+import { useEffect, useState } from "react";
 import Keyboard from "./Components/Keyboard";
 import WordBox from "./Components/WordBox";
 import Navbar from "./Components/Navbar";
+import { generateRandomWords } from "./common";
 
 function App() {
   const [currentKey, setCurrentKeys] = useState("");
+  const [listOfWords, setListOfWords] = useState([])
 
-  const listOfWords = [
-    "cat",
-    "dog",
-    "sun",
-    "moon",
-    "star",
-    "pen",
-    "hat",
-    "box",
-    "tree",
-    "book",
-    "red",
-    "blue",
-    "green",
-    "ball",
-    "fish",
-    "car",
-    "bat",
-    "cup",
-    "fan",
-    "key",
-    "run",
-    "jump",
-    "bird",
-    "map",
-    "shoe",
-    "note",
-    "game",
-    "door",
-    "ring",
-    "sock",
-  ];
+  useEffect(() => {
+    setListOfWords(generateRandomWords())
+  }, [])
 
   return (
     <>
