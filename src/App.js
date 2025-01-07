@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import WordBox from "./Components/WordBox";
 import Navbar from "./Components/Navbar";
-import { generateRandomWords } from "./common";
-import Keyboard from 'react-keyboard-package'
+import Keyboard from 'react-keyboard-package';
+import { getParagraph } from "./apiService";
 
 function App() {
-  const [currentKey, setCurrentKeys] = useState("");
-  const [listOfWords, setListOfWords] = useState([]);
+  const [currentKey, setCurrentKey] = useState("");
+  const [paragraphs, setParagraphs] = useState([]);
 
   useEffect(() => {
-    setListOfWords(generateRandomWords(15));
+    getParagraph().then((data) => {
+      console.log(data);
+      setParagraphs(data?.paragraphs);
+    });
   }, []);
 
   return (
@@ -18,13 +21,13 @@ function App() {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-8 mt-3">
-            <WordBox words={listOfWords} setCurrentKeys={setCurrentKeys} />
+            {paragraphs.length > 0 && (
+              <WordBox setCurrentKeys={setCurrentKey} paragraphs={paragraphs} />
+            )}
           </div>
           <div className="col-md-10">
-            <div
-              style={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}
-            >
-              <Keyboard currentKey={currentKey} theme={'light'} onInit={ () => console.log('nice owrl')} />
+            <div style={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}>
+              <Keyboard currentKey={currentKey} theme="light" onInit={() => console.log('nice work')} />
             </div>
           </div>
         </div>
