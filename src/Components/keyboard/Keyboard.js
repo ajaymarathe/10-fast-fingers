@@ -47,7 +47,7 @@ const Keyboard = ({ currentKey }) => {
   };
 
   return (
-    <div className={`${isDarkTheme ? "dark-theme" : "light-theme"}`}>
+    <div className={`${isDarkTheme ? "dark-theme" : "light-theme"}`} >
       <button onClick={toggleTheme} className="theme-toggle-button">
         Switch to {isDarkTheme ? "Light" : "Dark"} Theme
       </button>
