@@ -33,6 +33,8 @@ function WordBox({ setCurrentKeys, paragraphs }) {
   }, [count, isActive]);
 
   const generateWords = () => {
+    setIsActive(false);
+    setCount(60);
     const randomIndex = Math.floor(Math.random() * paragraphs.length);
     const randomParagraph = paragraphs[randomIndex];
     const wordsArray = randomParagraph.paragraph.split(" ");
