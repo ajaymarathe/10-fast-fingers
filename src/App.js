@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap-spinner';
 import WordBox from "./Components/WordBox";
 import Navbar from "./Components/Navbar";
 import Keyboard from "react-keyboard-package";
-import { getParagraph } from "./apiService";
+import { getParagraph } from "./ApiServices/paragraphService";
 
 
 function App() {
