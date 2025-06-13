@@ -16,7 +16,7 @@ function WordBox({ setCurrentKeys, paragraphs }) {
 
   useEffect(() => {
     setCurrentKeys(currentKey);
-  }, [currentKey]);
+  }, [currentKey, setCurrentKeys]);
 
   useEffect(() => {
     generateWords();
@@ -24,7 +24,10 @@ function WordBox({ setCurrentKeys, paragraphs }) {
 
   useEffect(() => {
     if (count > 0 && count <= 60 && isActive) {
-      const timer = setTimeout(() => setCount((prevCount) => prevCount - 1), 1000);
+      const timer = setTimeout(
+        () => setCount((prevCount) => prevCount - 1),
+        1000
+      );
       return () => clearTimeout(timer);
     }
     if (count === 0) {
@@ -32,7 +35,12 @@ function WordBox({ setCurrentKeys, paragraphs }) {
     }
   }, [count, isActive]);
 
+
   const generateWords = () => {
+    setCurrentIndex(0);
+    setCorrectWords(null);
+    setNewAddedWords([]);
+    setWrongWords([]);
     setIsActive(false);
     setCount(60);
     const randomIndex = Math.floor(Math.random() * paragraphs.length);

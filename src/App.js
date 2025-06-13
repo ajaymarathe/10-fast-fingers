@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import WordBox from "./Components/WordBox";
 import Navbar from "./Components/Navbar";
-import Keyboard from 'react-keyboard-package';
+import Keyboard from "react-keyboard-package";
 import { getParagraph } from "./apiService";
 
 function App() {
@@ -20,14 +20,20 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-md-8 mt-3">
+          <div className="col-md-12 mt-3">
             {paragraphs.length > 0 && (
               <WordBox setCurrentKeys={setCurrentKey} paragraphs={paragraphs} />
             )}
           </div>
           <div className="col-md-10">
-            <div style={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}>
-              <Keyboard currentKey={currentKey} theme="light" onInit={() => console.log('nice work')} />
+            <div
+              style={{ width: "100%", maxWidth: "1200px", margin: "0 auto" }}
+            >
+              <Keyboard
+                currentKey={currentKey}
+                theme="light"
+                onInit={() => console.log("nice work")}
+              />
             </div>
           </div>
         </div>
