@@ -3,9 +3,8 @@ import WordContainer from "./WordContainer";
 import CreateComponent from "./CreateComponent";
 import Result from "./Result";
 
-function WordBox({ setCurrentKeys, paragraphs }) {
+function WordBox({ currentKey, setCurrentKey, paragraphs }) {
   const [currentWord, setCurrentWord] = useState("");
-  const [currentKey, setCurrentKey] = useState(null);
   const [newAddedWords, setNewAddedWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [wrongWords, setWrongWords] = useState([]);
@@ -15,8 +14,8 @@ function WordBox({ setCurrentKeys, paragraphs }) {
   const [words, setWords] = useState([]);
 
   useEffect(() => {
-    setCurrentKeys(currentKey);
-  }, [currentKey, setCurrentKeys]);
+    setCurrentKey(currentKey);
+  }, [currentKey, setCurrentKey]);
 
   useEffect(() => {
     generateWords();

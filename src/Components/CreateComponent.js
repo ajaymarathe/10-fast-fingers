@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const CreateComponent = ({
   currentWord,
@@ -38,6 +39,15 @@ const CreateComponent = ({
       </button>
     </div>
   );
+};
+
+CreateComponent.propTypes = {
+  currentWord: PropTypes.string.isRequired,
+  onChangeText: PropTypes.func.isRequired,
+  setIsActive: PropTypes.func.isRequired,
+  setCurrentKey: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired,
+  onRefresh: PropTypes.func.isRequired,
 };
 
 export default CreateComponent;

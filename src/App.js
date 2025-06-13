@@ -9,10 +9,14 @@ function App() {
   const [paragraphs, setParagraphs] = useState([]);
 
   useEffect(() => {
-    getParagraph().then((data) => {
-      console.log(data);
-      setParagraphs(data?.paragraphs);
-    });
+    getParagraph()
+      .then((data) => {
+        setParagraphs(data?.paragraphs || []);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch paragraphs:", err);
+        setParagraphs([]); 
+      });
   }, []);
 
   return (
@@ -22,7 +26,11 @@ function App() {
         <div className="row justify-content-center">
           <div className="col-md-12 mt-3">
             {paragraphs.length > 0 && (
-              <WordBox setCurrentKeys={setCurrentKey} paragraphs={paragraphs} />
+              <WordBox
+                setCurrentKey={setCurrentKey}
+                currentKey={currentKey}
+                paragraphs={paragraphs}
+              />
             )}
           </div>
           <div className="col-md-10">
@@ -32,7 +40,7 @@ function App() {
               <Keyboard
                 currentKey={currentKey}
                 theme="light"
-                onInit={() => console.log("nice work")}
+                onInit={() => {}}
               />
             </div>
           </div>
