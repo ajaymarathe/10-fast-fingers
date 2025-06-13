@@ -1,31 +1,53 @@
 import React, { useEffect, useState } from "react";
+
 import WordContainer from "./WordContainer";
 import CreateComponent from "./CreateComponent";
 import Result from "./Result";
 
-function WordBox({ words, setCurrentKeys }) {
+function WordBox({ currentKey, setCurrentKey, paragraphs }) {
   const [currentWord, setCurrentWord] = useState("");
-  const [currentKey, setCurrentKey] = useState(null);
   const [newAddedWords, setNewAddedWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [wrongWords, setwrongWords] = useState([]);
+  const [wrongWords, setWrongWords] = useState([]);
   const [count, setCount] = useState(60);
   const [isActive, setIsActive] = useState(false);
   const [correctWords, setCorrectWords] = useState(null);
+  const [words, setWords] = useState([]);
 
   useEffect(() => {
-    setCurrentKeys(currentKey);
-  }, [currentKey]);
+    setCurrentKey(currentKey);
+  }, [currentKey, setCurrentKey]);
+
+  useEffect(() => {
+    generateWords();
+  }, [paragraphs]);
 
   useEffect(() => {
     if (count > 0 && count <= 60 && isActive) {
-      const timer = setTimeout(() => setCount(count - 1), 1000);
+      const timer = setTimeout(
+        () => setCount((prevCount) => prevCount - 1),
+        1000
+      );
       return () => clearTimeout(timer);
     }
     if (count === 0) {
       setCorrectWords(newAddedWords.length);
     }
   }, [count, isActive]);
+
+
+  const generateWords = () => {
+    setCurrentIndex(0);
+    setCorrectWords(null);
+    setNewAddedWords([]);
+    setWrongWords([]);
+    setIsActive(false);
+    setCount(60);
+    const randomIndex = Math.floor(Math.random() * paragraphs.length);
+    const randomParagraph = paragraphs[randomIndex];
+    const wordsArray = randomParagraph.paragraph.split(" ");
+    setWords(wordsArray);
+  };
 
   const onChangeText = (e) => {
     setIsActive(true);
@@ -35,11 +57,11 @@ function WordBox({ words, setCurrentKeys }) {
   useEffect(() => {
     if (currentKey === " ") {
       setCurrentWord(" ");
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex((prevIndex) => prevIndex + 1);
       if (words[currentIndex] === currentWord.trim()) {
-        setNewAddedWords([...newAddedWords, currentWord.trim()]);
+        setNewAddedWords((prevWords) => [...prevWords, currentWord.trim()]);
       } else {
-        setwrongWords([...wrongWords, words[currentIndex]]);
+        setWrongWords((prevWords) => [...prevWords, words[currentIndex]]);
       }
     }
   }, [currentKey]);
@@ -64,6 +86,7 @@ function WordBox({ words, setCurrentKeys }) {
         setIsActive={setIsActive}
         setCurrentKey={setCurrentKey}
         count={count}
+        onRefresh={generateWords}
       />
     </>
   );
