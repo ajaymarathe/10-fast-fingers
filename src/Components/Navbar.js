@@ -27,9 +27,7 @@ function Navbar() {
             </li>
           </ul>
           <div className="form-inline my-2 my-lg-0">
-            <div className="nav-item">
-              Profile
-            </div>
+            <div className="nav-item">Profile</div>
           </div>
         </div>
       </nav>

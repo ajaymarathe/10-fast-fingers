@@ -24,7 +24,11 @@ $text-color-dark: #ffffff;
       color: $text-color-light;
 
       &:hover {
-        background: linear-gradient(145deg, $key-button-hover-bg-light, #c0c9ff);
+        background: linear-gradient(
+          145deg,
+          $key-button-hover-bg-light,
+          #c0c9ff
+        );
       }
 
       &:active {
@@ -73,7 +77,8 @@ $text-color-dark: #ffffff;
   border-radius: 0.6em;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 
-  .main-keys, .extra-keys {
+  .main-keys,
+  .extra-keys {
     .keyboard-row {
       display: flex;
       justify-content: flex-start;
