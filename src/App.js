@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import Spinner from 'react-bootstrap-spinner';
+
 import WordBox from "./Components/WordBox";
 import Navbar from "./Components/Navbar";
 import Keyboard from "react-keyboard-package";
 import { getParagraph } from "./apiService";
+
 
 function App() {
   const [currentKey, setCurrentKey] = useState("");
@@ -25,12 +28,16 @@ function App() {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-12 mt-3">
-            {paragraphs.length > 0 && (
+            {paragraphs.length > 0 ? (
               <WordBox
                 setCurrentKey={setCurrentKey}
                 currentKey={currentKey}
                 paragraphs={paragraphs}
               />
+            ) : (
+              <div className="d-flex justify-content-center">
+                <Spinner animation="border" color="primary" size="4rem" />
+              </div>
             )}
           </div>
           <div className="col-md-10">
