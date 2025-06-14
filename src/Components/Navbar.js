@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from 'react-router-dom';
+import { useAuth } from "../Context/AuthContext";
 
 
 function Navbar() {
+  const { user, logout } = useAuth();
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
@@ -30,7 +33,15 @@ function Navbar() {
           </ul>
           <div className="form-inline my-2 my-lg-0">
             <div className="nav-item">
-              <Link to="/login" className="nav-link">Login</Link>
+              {user ? (
+                <button className="btn btn-danger" onClick={logout}>
+                  Logout
+                </button>
+              ) : (
+                <Link to="/login" className="btn btn-primary">
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         </div>
