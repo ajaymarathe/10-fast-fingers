@@ -3,7 +3,7 @@ import Spinner from 'react-bootstrap-spinner';
 import Keyboard from "react-keyboard-package";
 
 import Navbar from "../Components/Navbar";
-import { getParagraph } from "../apiService";
+import { getParagraph } from "../ApiServices/paragraphService";
 import WordBox from "../Components/WordBox";
 
 
