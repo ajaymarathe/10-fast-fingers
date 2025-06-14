@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { Link } from 'react-router-dom';
+
 
 function Navbar() {
   return (
@@ -27,7 +29,9 @@ function Navbar() {
             </li>
           </ul>
           <div className="form-inline my-2 my-lg-0">
-            <div className="nav-item">Profile</div>
+            <div className="nav-item">
+              <Link to="/login" className="nav-link">Login</Link>
+            </div>
           </div>
         </div>
       </nav>
